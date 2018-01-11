@@ -5,6 +5,7 @@ This is a collection of docker images used by Fröjd
 ## Images
 
 - [Elixir-Ubuntu-16-04](./elixir-ubuntu-16-04) - A Circle 2.0 compatible Elixir image based on Ubuntu 16.04.
+- [Postgis-sv_SE](./postgis-sv_se) - A postgres container with sv_SE collation.
 
 
 ## Contributing
