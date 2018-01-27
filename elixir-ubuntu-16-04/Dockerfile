@@ -17,13 +17,6 @@ RUN apt-get update \
     && apt-get -y install esl-erlang elixir=$ELIXIR_VERSION \
     && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd --gid 3434 circleci \
-  && useradd --uid 3434 --gid circleci --shell /bin/bash --create-home circleci \
-  && echo 'circleci ALL=NOPASSWD: ALL' >> /etc/sudoers.d/50-circleci \
-  && echo 'Defaults    env_keep += "DEBIAN_FRONTEND"' >> /etc/sudoers.d/env_keep
-
-USER circleci
-
 RUN mix local.hex --force && mix local.rebar --force
 
 CMD ["iex"]
