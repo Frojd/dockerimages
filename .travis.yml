@@ -12,6 +12,8 @@ after_success:
  - docker login -u $DOCKER_USER -p $DOCKER_PASS
  - cd ./postgis-sv_se
  - make push
+ - cd ../wp-cli-php-7.2
+ - make push
  - cd ../composer-php-7.0
  - make push
  - cd ../elixir-ubuntu-16-04
