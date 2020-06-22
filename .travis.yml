@@ -11,6 +11,8 @@ script:
  - make build
  - cd ../elixir-ubuntu-18-04
  - make build
+ - cd ../elixir-ubuntu-20-04
+ - make build
 
 after_success:
  - docker login -u $DOCKER_USER -p $DOCKER_PASS
@@ -25,4 +27,6 @@ after_success:
  - cd ../elixir-ubuntu-16-04
  - make push
  - cd ../elixir-ubuntu-18-04
+ - make push
+ - cd ../elixir-ubuntu-20-04
  - make push
