@@ -13,7 +13,7 @@ This is a collection of docker images used by Fröjd
 - [Elixir-Ubuntu-20-04](./elixir-ubuntu-20-04) - A Ubuntu 20.04 compatible Elixir image ([Dockerhub](https://hub.docker.com/r/frojd/elixir-ubuntu-20-04))
 - [Elixir-Ubuntu-18-04](./elixir-ubuntu-18-04) - A Ubuntu 18.04 compatible Elixir image ([Dockerhub](https://hub.docker.com/r/frojd/elixir-ubuntu-18-04))
 - [Elixir-Ubuntu-16-04](./elixir-ubuntu-16-04) - A Ubuntu 16.04 compatible Elixir image ([Dockerhub](https://hub.docker.com/r/frojd/elixir-ubuntu-16-04))
-- [Postgis-sv_SE](./postgis-sv_se) - A postgres container with sv_SE collation ([Dockerhub](https://hub.docker.com/r/frojd/postgis-sv_se))
+- [Postgis-sv_SE](./postgis-sv_se) - A postgres container with sv_SE collation ([Dockerhub](https://hub.docker.com/r/frojd/postgis-sv_se)) that uses PostGIS 2.5
 
 
 ## Contributing
