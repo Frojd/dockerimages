@@ -1,7 +1,0 @@
-
-script:
- - cd ./postgis-sv_se && make build; cd ..
-
-after_success:
- - docker login -u $DOCKER_USER -p $DOCKER_PASS
- - cd ./postgis-sv_se && make push; cd ..
