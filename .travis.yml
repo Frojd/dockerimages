@@ -1,13 +1,7 @@
 
 script:
  - cd ./postgis-sv_se && make build; cd ..
- - cd ./elixir-ubuntu-16-04 && make build; cd ..
- - cd ./elixir-ubuntu-18-04 && make build; cd ..
- - cd ./elixir-ubuntu-20-04 && make build; cd ..
 
 after_success:
  - docker login -u $DOCKER_USER -p $DOCKER_PASS
  - cd ./postgis-sv_se && make push; cd ..
- - cd ./elixir-ubuntu-16-04 && make push; cd ..
- - cd ./elixir-ubuntu-18-04 && make push; cd ..
- - cd ./elixir-ubuntu-20-04 && make push; cd ..
