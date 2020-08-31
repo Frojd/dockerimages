@@ -5,7 +5,11 @@ script:
  - make build
  - cd ../composer-php-7.2
  - make build
+ - cd ../composer-php-7.4
+ - make build
  - cd ../wp-cli-php-7.2
+ - make build
+ - cd ../wp-cli-php-7.4
  - make build
  - cd ../elixir-ubuntu-16-04
  - make build
@@ -20,9 +24,13 @@ after_success:
  - make push
  - cd ../wp-cli-php-7.2
  - make push
+ - cd ../wp-cli-php-7.4
+ - make push
  - cd ../composer-php-7.0
  - make push
  - cd ../composer-php-7.2
+ - make push
+ - cd ../composer-php-7.4
  - make push
  - cd ../elixir-ubuntu-16-04
  - make push
