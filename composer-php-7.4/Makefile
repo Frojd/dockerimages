@@ -1,8 +1,7 @@
 NAME = frojd/composer-php-7.4
 
 build:
-	docker build -t $(NAME):2.0.2 --rm --build-arg COMPOSER_VERSION=2.0.2
-
+	docker build -t $(NAME):2.0.2 --rm --build-arg COMPOSER_VERSION=2.0.2 .
 	docker build -t $(NAME):1.9.3 --rm --build-arg COMPOSER_VERSION=1.9.3 .
 	docker build -t $(NAME):1.9.2 --rm --build-arg COMPOSER_VERSION=1.9.2 .
 
@@ -15,4 +14,5 @@ push:
 	docker push $(NAME):1.9
 	docker push $(NAME):1.9.2
 	docker push $(NAME):1.9.3
+	docker push $(NAME):2.0
 	docker push $(NAME):latest
