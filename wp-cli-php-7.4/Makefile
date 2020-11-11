@@ -13,10 +13,8 @@ build:
 	docker tag $(NAME):2.4.1 $(NAME):latest
 
 push:
-	docker push $(NAME):2.3
 	docker push $(NAME):2.3.0
 
-	docker push $(NAME):2.4
 	docker push $(NAME):2.4.0
 	docker push $(NAME):2.4.1
 
