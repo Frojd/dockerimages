@@ -1,6 +1,7 @@
 FROM php:7.4-alpine
 
 RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install gd
 
 RUN apk update && apk add mysql-client tini less && rm -f /var/cache/apk/*
 
