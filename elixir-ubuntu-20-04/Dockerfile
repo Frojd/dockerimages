@@ -3,7 +3,7 @@ MAINTAINER Fröjd
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG ELIXIR_VERSION
-ENV ELIXIR_VERSION ${ELIXIR_VERSION:-1.5.2-1}
+ENV ELIXIR_VERSION ${ELIXIR_VERSION:-1.10.3-1}
 
 RUN apt-get update && apt-get -y install wget sudo gnupg \
     && apt-get -y install git ssh ca-certificates locales \
