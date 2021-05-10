@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 MAINTAINER Fröjd
 
 ARG ELIXIR_VERSION
-ENV ELIXIR_VERSION ${ELIXIR_VERSION:-1.5.2-1}
+ENV ELIXIR_VERSION ${ELIXIR_VERSION:-1.6.6-1}
 
 RUN apt-get update && apt-get -y install wget sudo \
     && apt-get -y install git ssh ca-certificates locales \
