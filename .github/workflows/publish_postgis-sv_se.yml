@@ -1,0 +1,28 @@
+name: Publish postgis-sv_se
+on:
+  push:
+    branches: [ postgis-sv_se ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        docker-image:
+          - postgis-sv_se
+    steps:
+      - uses: actions/checkout@v2
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: build ${{ matrix.docker-image }}
+        run: make build
+        working-directory: ${{ matrix.docker-image }}
+
+      - name: push ${{ matrix.docker-image }}
+        run: make push
+        working-directory: ${{ matrix.docker-image }}
