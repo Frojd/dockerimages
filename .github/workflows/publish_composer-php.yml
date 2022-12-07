@@ -13,6 +13,8 @@ jobs:
           - composer-php-7.0
           - composer-php-7.2
           - composer-php-7.4
+          - composer-php-8.0
+          - composer-php-8.1
     steps:
       - uses: actions/checkout@v2
       - name: Log in to Docker Hub
