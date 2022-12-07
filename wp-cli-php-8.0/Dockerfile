@@ -9,10 +9,9 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-in
 ARG WPCLI_VERSION
 ENV WPCLI_VERSION ${WPCLI_VERSION}
 
-RUN curl --silent --fail --location --retry 3 --output /tmp/wp-cli.phar \
-         --url https://github.com/wp-cli/wp-cli/releases/download/v${WPCLI_VERSION}/wp-cli-${WPCLI_VERSION}.phar; \
-    chmod +x /tmp/wp-cli.phar; \
-    mv /tmp/wp-cli.phar /bin/wp
+RUN curl --silent --fail --location --retry 3 --output /tmp/wp-cli.phar --url https://github.com/wp-cli/wp-cli/releases/download/v${WPCLI_VERSION}/wp-cli-${WPCLI_VERSION}.phar
+RUN chmod +x /tmp/wp-cli.phar
+RUN mv /tmp/wp-cli.phar /bin/wp
 
 
 WORKDIR /app
