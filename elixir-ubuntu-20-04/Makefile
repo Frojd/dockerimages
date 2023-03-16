@@ -1,4 +1,4 @@
-NAME = frojd/elixir-ubuntu-20-04
+NAME = ghcr.io/frojd/dockerimages/elixir-ubuntu-20-04
 
 build:
 	docker build -t $(NAME):1.13.0 --rm --build-arg ELIXIR_VERSION=1.13.0-1 .
