@@ -1,4 +1,4 @@
-NAME = frojd/wp-cli-php-7.2
+NAME = ghcr.io/frojd/dockerimages/wp-cli-php-7.2
 
 build:
 	docker build -t $(NAME):2.3.0 --rm --build-arg WPCLI_VERSION=2.3.0 .
