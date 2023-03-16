@@ -1,4 +1,4 @@
-NAME = ghcr.io/frojd/postgis-sv_se
+NAME = ghcr.io/frojd/dockerimages/postgis-sv_se
 
 build:
 	docker build -t $(NAME):12 --rm --build-arg POSTGRES_VERSION=12-2.5 .
