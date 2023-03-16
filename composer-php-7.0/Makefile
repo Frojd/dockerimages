@@ -1,4 +1,4 @@
-NAME = frojd/composer-php-7.0
+NAME = ghcr.io/frojd/dockerimages/composer-php-7.0
 
 build:
 	docker build -t $(NAME):1.9.3 --rm --build-arg COMPOSER_VERSION=1.9.3 .
