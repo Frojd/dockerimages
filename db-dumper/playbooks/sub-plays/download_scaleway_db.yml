@@ -8,6 +8,7 @@
 
     - name: Create backup
       community.general.scaleway_database_backup:
+          api_timeout: 3600
           state: present
           region: "{{ db_region }}"
           database_name: "{{ db_name }}"
@@ -19,6 +20,7 @@
 
     - name: Export backup
       community.general.scaleway_database_backup:
+          api_timeout: 3600
           state: exported
           region: "{{ db_region }}"
           api_token: "{{ db_secret_key }}"
