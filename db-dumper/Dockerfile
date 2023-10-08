@@ -50,4 +50,4 @@ ENV PATH="/home/app/venv/bin:$PATH"
 RUN chown -R app:app /home/app
 USER app
 
-CMD ["ansible-playbook", "playbooks/export_db_to_bucket.yml", "-e", "@./config/variables.yml"]
+CMD ["ansible-playbook", "playbooks/scaleway_db_to_bucket.yml", "-e", "@./config/variables.yml"]
