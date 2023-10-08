@@ -1,1 +1,5 @@
 .idea
+db-dumper/.venv
+db-dumper/config/variables.yml
+db-dumper/tmp/
+!db-dumper/tmp/.gitkeep

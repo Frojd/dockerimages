@@ -1,0 +1,31 @@
+---
+- name: "Download remote DB"
+  hosts: localhost
+  tasks:
+    - name: Generate ISO 8601 string for next week
+      set_fact:
+          expiry_date: "{{ '%Y-%m-%dT%H:%M:%SZ' | strftime( (ansible_date_time.epoch | int ) + ( 60 * 60 * 24 * 7) ) }}"
+
+    - name: Create backup
+      community.general.scaleway_database_backup:
+          state: present
+          region: "{{ db_region }}"
+          database_name: "{{ db_name }}"
+          instance_id: "{{ db_instance_id }}"
+          name: "ansible_export_{{ backup_name }}"
+          api_token: "{{ db_secret_key }}"
+          expires_at: "{{ expiry_date }}"
+      register: db_backup
+
+    - name: Export backup
+      community.general.scaleway_database_backup:
+          state: exported
+          region: "{{ db_region }}"
+          api_token: "{{ db_secret_key }}"
+          id: "{{ db_backup.metadata.id }}"
+      register: db_export
+
+    - name: Download database
+      ansible.builtin.get_url:
+          url: "{{ db_export.metadata.download_url }}"
+          dest: "{{ backup_path }}"

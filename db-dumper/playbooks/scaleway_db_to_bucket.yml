@@ -1,0 +1,28 @@
+---
+- name: "Sync database and assets from remote"
+  hosts: localhost
+  tasks:
+    - name: Generate date-string for today string for next week
+      set_fact:
+        date_string: "{{ '%Y-%m-%dT%H:%M:%SZ' | strftime( (ansible_date_time.epoch | int )) }}"
+
+- name: Download remote db
+  ansible.builtin.import_playbook: sub-plays/download_scaleway_db.yml
+  vars:
+    db_region: "{{ db_region }}"
+    db_name: "{{ db_name }}"
+    db_instance_id: "{{ db_instance_id }}"
+    db_secret_key: "{{ db_secret_key }}"
+    backup_path: "../../tmp/{{ backup_name }}.pgc"
+    backup_name: "{{ backup_name }}"
+
+- name: Store to s3
+  ansible.builtin.import_playbook: sub-plays/copy_to_s3.yml
+  vars:
+    source: "../../tmp/{{ backup_name }}.pgc"
+    destination: "s3://{{ object_storage_bucket_name}}/db-exports/{{ backup_name }}/{{ backup_name }}-{{ date_string }}.pgc"
+
+    endpoint_url: "{{ object_storage_endpoint_url }}"
+    aws_access_key: "{{ object_storage_access_key }}"
+    aws_secret_key: "{{ object_storage_secret_key }}"
+    aws_region_name: "{{ object_storage_region }}"

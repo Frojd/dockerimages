@@ -1,0 +1,18 @@
+---
+- name: "Copies a file to s3"
+  hosts: localhost
+  tasks:
+    - name: Check if aws cli exists
+      command: which aws
+      register: aws_check
+      ignore_errors: yes
+
+    - name: Assert aws-cli in path. Install it (brew install awscli) and try again.
+      fail: msg="This requires aws-cli. Install it and try again (brew install awscli)"
+      when: aws_check.rc != 0
+
+    - name: Copying file to s3
+      command: "aws --endpoint-url {{ endpoint_url }} --region {{ aws_region_name }} s3 cp {{source}} {{destination}}"
+      environment:
+        AWS_ACCESS_KEY_ID: "{{ aws_access_key }}"
+        AWS_SECRET_ACCESS_KEY: "{{ aws_secret_key }}"

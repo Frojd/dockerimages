@@ -1,0 +1,14 @@
+---
+backup_name: "stage"
+db_vendor: "scaleway"
+
+db_region: "nl-ams"
+db_name: "rdb"
+db_instance_id: "YOUR_SCALEWAY_INSTANCE_ID"
+db_secret_key: "SCW_SECRET_KEY - IAM"
+
+object_storage_bucket_name: "backup-bucket-name"
+object_storage_endpoint_url: "https://s3.fr-par.scw.cloud"
+object_storage_access_key: "AWS_ACCESS_KEY"
+object_storage_secret_key: "AWS_SECRET_KEY"
+object_storage_region: "fr-par"
