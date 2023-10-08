@@ -9,7 +9,8 @@ and/or vendor
 
 To run it locally, just create your ./config/variables.yml and run like:
 ```
-EXEMPEL HÄR
+docker pull ghcr.io/frojd/dockerimages/db-dumper
+docker run --rm -it -v /local/path/to/variables.yml:/home/app/variables.yml dockerimages/db-dumper
 ```
 
 ## Development
