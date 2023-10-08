@@ -1,5 +1,5 @@
 ---
-- name: "Sync database and assets from remote"
+- name: "Upload database to S3"
   hosts: localhost
   tasks:
     - name: Generate date-string for today string for next week
