@@ -2,10 +2,27 @@
 Can be as a terraform module like:
 
 module "backup_jobs" {
-  source = "../modules/backup_jobs"
-  ...
-  variables from variables.tf
-  ...
+  source = "./modules/backup_jobs"
+
+  backup_name = "sentry-backup"
+
+  object_storage_access_key = data.terraform_remote_state.static.outputs.object_storage_access_key
+  object_storage_secret_key = data.terraform_remote_state.static.outputs.object_storage_secret_key
+  object_storage_bucket_name = data.terraform_remote_state.static.outputs.object_storage_bucket_name
+  object_storage_region = data.terraform_remote_state.static.outputs.object_storage_region
+  object_storage_endpoint_url = "s3.${data.terraform_remote_state.static.outputs.object_storage_region}.scw.cloud"
+
+  backup_object_storage_bucket_name = data.terraform_remote_state.static.outputs.backup_object_storage_bucket_name
+  backup_object_storage_region = data.terraform_remote_state.static.outputs.backup_object_storage_region
+  backup_object_storage_access_key = data.terraform_remote_state.static.outputs.backup_object_storage_access_key
+  backup_object_storage_secret_key = data.terraform_remote_state.static.outputs.backup_object_storage_secret_key
+  backup_object_storage_endpoint_url = "s3.${data.terraform_remote_state.static.outputs.backup_object_storage_region}.scw.cloud"
+
+  db_vendor = "scaleway"
+  db_region = data.terraform_remote_state.static.outputs.object_storage_region
+  db_name = "rdb"
+  db_instance_id = data.terraform_remote_state.static.outputs.db_instance_id
+  db_secret_key = data.terraform_remote_state.static.outputs.db_secret_key
 }
 */
 
@@ -62,10 +79,6 @@ resource "kubernetes_cron_job_v1" "do_daily_object_storage_backups" {
           metadata {}
 
           spec {
-            image_pull_secrets {
-              name = "registry-secret"
-            }
-
             volume {
               name = "rclone-config-volume"
               config_map {
@@ -154,10 +167,6 @@ resource "kubernetes_cron_job_v1" "do_daily_db_backup" {
           metadata {}
 
           spec {
-            image_pull_secrets {
-              name = "registry-secret"
-            }
-
             volume {
               name = "db-backup-runner-volume"
               config_map {
