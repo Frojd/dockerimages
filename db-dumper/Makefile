@@ -1,3 +1,4 @@
+NAME = ghcr.io/frojd/dockerimages/db-dumper
 REQUIREMENTS_TXT=./requirements.txt
 
 init: venv
