@@ -34,4 +34,5 @@
     - name: Download database
       ansible.builtin.get_url:
           url: "{{ db_export.metadata.download_url }}"
+          timeout: 3600
           dest: "{{ backup_path }}"
