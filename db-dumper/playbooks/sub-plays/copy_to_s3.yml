@@ -11,6 +11,9 @@
       fail: msg="This requires aws-cli. Install it and try again (brew install awscli)"
       when: aws_check.rc != 0
 
+    - name: Set chunk size (supports up to 64Gb transfers)
+      command: "aws configure set default.s3.multipart_chunksize 64MB"
+
     - name: Copying file to s3
       command: "aws --endpoint-url {{ endpoint_url }} --region {{ aws_region_name }} s3 cp {{source}} {{destination}}"
       environment:
