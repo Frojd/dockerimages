@@ -34,6 +34,17 @@ RUN apt-get update && apt-get install --no-install-recommends -y python3.11 pyth
 RUN addgroup app --gid 1000 && adduser app --gid 1000 --uid 1000
 COPY --from=builder-image /home/app/venv /home/app/venv
 
+# Install sentry-cli. 
+# 
+# The container does not use this, but one could 
+# add monitoring to the cron if desired by setting
+# the following ENV:
+# SENTRY_DSN=https://xxx@yoursentry.url/1
+# 
+# Then using the following command:
+# ["sentry-cli", "monitors", "run", "db-dumper", "--", "ansible-playbook", "playbooks/scaleway_db_to_bucket.yml", "-e", "@./config/variables.yml"]
+RUN curl -sL https://sentry.io/get-cli/ | bash
+
 WORKDIR /home/app
 COPY playbooks/sub-plays playbooks/sub-plays
 COPY playbooks/scaleway_db_to_bucket.yml playbooks/
