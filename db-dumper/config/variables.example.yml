@@ -1,5 +1,6 @@
 ---
 backup_name: "stage"
+backup_extension: "pgc"
 db_vendor: "scaleway"
 
 db_region: "nl-ams"
