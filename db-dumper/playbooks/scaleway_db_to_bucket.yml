@@ -13,9 +13,9 @@
     db_name: "{{ db_name }}"
     db_instance_id: "{{ db_instance_id }}"
     db_secret_key: "{{ db_secret_key }}"
-    backup_path: "../../tmp/{{ backup_name }}.{{ backup_extension || \"pgc\" }}"
+    backup_path: "../../tmp/{{ backup_name }}.{{ backup_extension|default('pgc') }}"
     backup_name: "{{ backup_name }}"
-    backup_extension: "{{ backup_extension || \"pgc\" }}"
+    backup_extension: "{{ backup_extension|default('pgc')}}"
 
 - name: Store to s3
   ansible.builtin.import_playbook: sub-plays/copy_to_s3.yml
