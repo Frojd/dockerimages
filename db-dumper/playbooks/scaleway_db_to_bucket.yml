@@ -1,10 +1,14 @@
 ---
-- name: "Upload database to S3"
+- name: "Set local variables"
   hosts: localhost
   tasks:
     - name: Generate date-string for today string for next week
       set_fact:
         date_string: "{{ '%Y-%m-%dT%H:%M:%SZ' | strftime( (ansible_date_time.epoch | int )) }}"
+
+    - name: Set backup extension
+      set_fact:
+        backup_extension_or_default: "{{ backup_extension|default('pgc')}}"
 
 - name: Download remote db
   ansible.builtin.import_playbook: sub-plays/download_scaleway_db.yml
@@ -14,7 +18,7 @@
     db_instance_id: "{{ db_instance_id }}"
     db_secret_key: "{{ db_secret_key }}"
     backup_name: "{{ backup_name }}"
-    backup_extension_or_default: "{{ backup_extension|default('pgc')}}"
+    backup_extension: "{{ backup_extension_or_default }}"
     backup_path: "../../tmp/{{ backup_name }}.{{ backup_extension_or_default }}"
 
 - name: Store to s3
