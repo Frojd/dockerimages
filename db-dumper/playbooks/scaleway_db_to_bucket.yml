@@ -6,6 +6,21 @@
       set_fact:
         date_string: "{{ '%Y-%m-%dT%H:%M:%SZ' | strftime( (ansible_date_time.epoch | int )) }}"
 
+    - name: Read from env-variables unless variables passed in to script
+      when: not backup_name
+      set_fact:
+        backup_name: "{{ lookup('env', 'BACKUP_NAME') }}"
+        db_vendor: "{{ lookup('env', 'DB_VENDOR') }}"
+        db_region: "{{ lookup('env', 'DB_REGION') }}"
+        db_name: "{{ lookup('env', 'DB_NAME') }}"
+        db_instance_id: "{{ lookup('env', 'DB_INSTANCE_ID') }}"
+        db_secret_key: "{{ lookup('env', 'DB_SECRET_KEY') }}"
+        object_storage_bucket_name: "{{ lookup('env', 'OBJECT_STORAGE_BUCKET_NAME') }}"
+        object_storage_endpoint_url: "{{ lookup('env', 'OBJECT_STORAGE_ENDPOINT_URL') }}"
+        object_storage_access_key: "{{ lookup('env', 'OBJECT_STORAGE_ACCESS_KEY') }}"
+        object_storage_secret_key: "{{ lookup('env', 'OBJECT_STORAGE_SECRET_KEY') }}"
+        object_storage_region: "{{ lookup('env', 'OBJECT_STORAGE_STORAGE_REGION') }}"
+
     - name: Set backup extension
       set_fact:
         backup_extension_or_default: "{{ backup_extension|default('pgc')}}"
