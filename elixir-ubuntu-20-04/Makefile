@@ -10,7 +10,7 @@ build:
 	docker build -t $(NAME):1.10.4 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=23.3 --build-arg ELIXIR_VERSION=1.10.4-otp-23 .
 
 	docker tag $(NAME):1.16.1 $(NAME):1.16
-	docker tag $(NAME):1.15.7 $(NAME):1.13
+	docker tag $(NAME):1.15.7 $(NAME):1.15
 	docker tag $(NAME):1.14.5 $(NAME):1.14
 	docker tag $(NAME):1.13.4 $(NAME):1.13
 	docker tag $(NAME):1.12.3 $(NAME):1.12
