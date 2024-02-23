@@ -13,7 +13,7 @@ This is a collection of docker images used by Fröjd, each are maintained in sep
 - WP-Cli-PHP-7.4 - WP-cli container built on php 7.4 ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Fwp-cli-php-7.4))
 - WP-Cli-PHP-8.0 - WP-cli container built on php 8.0 ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Fwp-cli-php-8.0))
 - WP-Cli-PHP-8.1 - WP-cli container built on php 8.1 ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Fwp-cli-php-8.1))
-- Elixir-Ubuntu-16-04 - A Ubuntu 16.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-16-04))
+- (Deprecated) Elixir-Ubuntu-16-04 - A Ubuntu 16.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-16-04))
 - Elixir-Ubuntu-18-04 - A Ubuntu 18.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-18-04))
 - Elixir-Ubuntu-20-04 - A Ubuntu 20.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-20-04))
 - Elixir-Ubuntu-22-04 - A Ubuntu 22.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-22-04))
