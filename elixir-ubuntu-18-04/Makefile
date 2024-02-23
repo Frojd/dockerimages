@@ -2,8 +2,8 @@ NAME = ghcr.io/frojd/dockerimages/elixir-ubuntu-18-04
 
 build:
 	docker build -t $(NAME):1.16.1 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=26.2 --build-arg ELIXIR_VERSION=1.16.1-otp-26 .
-	docker build -t $(NAME):1.15.7 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=26.2 --build-arg ELIXIR_VERSION=1.15.7-otp-26 .
-	docker build -t $(NAME):1.14.5 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=26.2 --build-arg ELIXIR_VERSION=1.14.5-otp-26 .
+	docker build -t $(NAME):1.15.7 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=25.3 --build-arg ELIXIR_VERSION=1.15.7-otp-25 .
+	docker build -t $(NAME):1.14.5 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=25.3 --build-arg ELIXIR_VERSION=1.14.5-otp-25 .
 	docker build -t $(NAME):1.13.4 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=25.3 --build-arg ELIXIR_VERSION=1.13.4-otp-25 .
 	docker build -t $(NAME):1.12.3 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=24.3 --build-arg ELIXIR_VERSION=1.12.3-otp-24 .
 	docker build -t $(NAME):1.11.4 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=24.3 --build-arg ELIXIR_VERSION=1.11.4-otp-24 .
