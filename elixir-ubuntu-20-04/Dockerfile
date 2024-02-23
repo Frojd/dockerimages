@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 MAINTAINER Fröjd
+LABEL org.opencontainers.image.source https://github.com/frojd/dockerimages
 
 ARG DEBIAN_FRONTEND=noninteractive
 
