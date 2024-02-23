@@ -15,7 +15,7 @@ jobs:
           - elixir-ubuntu-18-04
           #- elixir-ubuntu-16-04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Log in to GitHub Container Registry
         env:
           GHCR_PERSONAL_TOKEN: ${{ secrets.GHCR_PERSONAL_TOKEN }}
