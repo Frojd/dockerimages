@@ -10,10 +10,10 @@ build:
 	docker build -t $(NAME):2.0.2 --rm --build-arg COMPOSER_VERSION=2.0.2 .
 	docker tag $(NAME):2.0.2 $(NAME):2.0
 
-	docker build -t $(NAME):2.2.4 --rm --build-arg COMPOSER_VERSION=2.2.4 .
-	docker tag $(NAME):2.2.4 $(NAME):2.2
+	docker build -t $(NAME):2.7.1 --rm --build-arg COMPOSER_VERSION=2.7.1 .
+	docker tag $(NAME):2.7.1 $(NAME):2.7
 
-	docker tag $(NAME):2.2 $(NAME):latest
+	docker tag $(NAME):2.7 $(NAME):latest
 
 push:
 	docker push $(NAME):1.9
@@ -21,7 +21,7 @@ push:
 	docker push $(NAME):1.9.3
 
 	docker push $(NAME):2.0
-	docker push $(NAME):2.2
-	docker push $(NAME):2.2.4
+	docker push $(NAME):2.7.1
+	docker push $(NAME):2.7
 
 	docker push $(NAME):latest
