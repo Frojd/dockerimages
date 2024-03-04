@@ -21,6 +21,7 @@ RUN set -eux; \
   ; \
   docker-php-ext-install -j "$(nproc)" \
     zip \
+    bcmath \
   ; \
   runDeps="$( \
     scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
