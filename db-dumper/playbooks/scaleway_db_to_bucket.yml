@@ -20,6 +20,7 @@
         object_storage_access_key: "{{ lookup('env', 'OBJECT_STORAGE_ACCESS_KEY') }}"
         object_storage_secret_key: "{{ lookup('env', 'OBJECT_STORAGE_SECRET_KEY') }}"
         object_storage_region: "{{ lookup('env', 'OBJECT_STORAGE_STORAGE_REGION') }}"
+        object_storage_root_folder: "{{ lookup('env', 'OBJECT_STORAGE_STORAGE_ROOT_FOLDER') }}"
 
     - name: Set backup extension
       set_fact:
@@ -40,7 +41,7 @@
   ansible.builtin.import_playbook: sub-plays/copy_to_s3.yml
   vars:
     source: "../../tmp/{{ backup_name }}.{{ backup_extension_or_default }}"
-    destination: "s3://{{ object_storage_bucket_name}}/db-exports/{{ backup_name }}/{{ backup_name }}-{{ date_string }}.{{ backup_extension_or_default }}"
+    destination: "s3://{{ object_storage_bucket_name}}/{{ object_storage_root_folder }}/{{ backup_name }}/{{ backup_name }}-{{ date_string }}.{{ backup_extension_or_default }}"
 
     endpoint_url: "{{ object_storage_endpoint_url }}"
     aws_access_key: "{{ object_storage_access_key }}"
