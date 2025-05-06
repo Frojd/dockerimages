@@ -15,7 +15,8 @@
       command: "aws configure set default.s3.multipart_chunksize 64MB"
 
     - name: Copying file to s3
-      command: "aws --endpoint-url {{ endpoint_url }} --region {{ aws_region_name }} s3 cp {{source}} {{destination}}"
+      command: "aws --region {{ aws_region_name }} s3 cp {{source}} {{destination}}"
       environment:
+        AWS_ENDPOINT_URL_S3: "{{ endpoint_url}}"
         AWS_ACCESS_KEY_ID: "{{ aws_access_key }}"
         AWS_SECRET_ACCESS_KEY: "{{ aws_secret_key }}"
