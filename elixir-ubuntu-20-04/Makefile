@@ -1,6 +1,7 @@
 NAME = ghcr.io/frojd/dockerimages/elixir-ubuntu-20-04
 
 build:
+	docker build -t $(NAME):1.17.3 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=26.2 --build-arg ELIXIR_VERSION=1.17.3-otp-26 .
 	docker build -t $(NAME):1.16.1 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=26.2 --build-arg ELIXIR_VERSION=1.16.1-otp-26 .
 	docker build -t $(NAME):1.15.7 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=26.2 --build-arg ELIXIR_VERSION=1.15.7-otp-26 .
 	docker build -t $(NAME):1.14.5 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=26.2 --build-arg ELIXIR_VERSION=1.14.5-otp-26 .
@@ -9,6 +10,7 @@ build:
 	docker build -t $(NAME):1.11.4 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=24.3 --build-arg ELIXIR_VERSION=1.11.4-otp-24 .
 	docker build -t $(NAME):1.10.4 --rm --platform linux/x86_64 --build-arg ERLANG_VERSION=23.3 --build-arg ELIXIR_VERSION=1.10.4-otp-23 .
 
+	docker tag $(NAME):1.17.3 $(NAME):1.17
 	docker tag $(NAME):1.16.1 $(NAME):1.16
 	docker tag $(NAME):1.15.7 $(NAME):1.15
 	docker tag $(NAME):1.14.5 $(NAME):1.14
@@ -16,7 +18,7 @@ build:
 	docker tag $(NAME):1.12.3 $(NAME):1.12
 	docker tag $(NAME):1.11.4 $(NAME):1.11
 	docker tag $(NAME):1.10.4 $(NAME):1.10
-	docker tag $(NAME):1.16 $(NAME):latest
+	docker tag $(NAME):1.17 $(NAME):latest
 
 push:
 	docker push $(NAME):1.10
@@ -33,4 +35,6 @@ push:
 	docker push $(NAME):1.15.7
 	docker push $(NAME):1.16
 	docker push $(NAME):1.16.1
+	docker push $(NAME):1.17
+	docker push $(NAME):1.17.3
 	docker push $(NAME):latest
