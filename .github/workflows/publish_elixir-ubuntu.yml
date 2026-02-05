@@ -4,6 +4,10 @@ on:
     branches: [ elixir-ubuntu ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,13 +19,10 @@ jobs:
           - elixir-ubuntu-18-04
           #- elixir-ubuntu-16-04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Log in to GitHub Container Registry
-        env:
-          GHCR_PERSONAL_TOKEN: ${{ secrets.GHCR_PERSONAL_TOKEN }}
-          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
         run: |
-          echo $GHCR_PERSONAL_TOKEN | docker login ghcr.io -u $GHCR_USERNAME --password-stdin
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: build ${{ matrix.docker-image }}
         run: make build
