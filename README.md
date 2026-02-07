@@ -23,6 +23,7 @@ This is a collection of docker images used by Fröjd, each are maintained in sep
 - [Elixir-Ubuntu-22-04](https://github.com/Frojd/dockerimages/tree/elixir-ubuntu/elixir-ubuntu-22-04) - A Ubuntu 22.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-22-04))
 - [Elixir-Ubuntu-24-04](https://github.com/Frojd/dockerimages/tree/elixir-ubuntu/elixir-ubuntu-24-04) - A Ubuntu 24.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-24-04))
 - [Postgis-sv_SE](https://github.com/Frojd/dockerimages/tree/postgis-sv_se/postgis-sv_se) - A postgres container with sv_SE collation ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Fpostgis-sv_se))
+- [DB-dumper](https://github.com/Frojd/dockerimages/blob/db-dumper/db-dumper/) - Export db to any s3 compatible storage ([GHCR](https://github.com/Frojd/dockerimages/pkgs/container/dockerimages%2Fdb-dumper))
 
 To find the underlying code, inspect the different branches of this repo
 
