@@ -1,4 +1,5 @@
 .idea
+.claude
 db-dumper/.venv
 db-dumper/config/variables.yml
 db-dumper/tmp/
