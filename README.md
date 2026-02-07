@@ -21,6 +21,7 @@ This is a collection of docker images used by Fröjd, each are maintained in sep
 - Elixir-Ubuntu-18-04 - A Ubuntu 18.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-18-04))
 - Elixir-Ubuntu-20-04 - A Ubuntu 20.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-20-04))
 - Elixir-Ubuntu-22-04 - A Ubuntu 22.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-22-04))
+- Elixir-Ubuntu-24-04 - A Ubuntu 24.04 compatible Elixir image ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Felixir-ubuntu-24-04))
 - Postgis-sv_SE - A postgres container with sv_SE collation ([GHCR](https://github.com/orgs/Frojd/packages/container/package/dockerimages%2Fpostgis-sv_se)) that uses PostGIS versions 10-12 2.5 and versions 13-17 3.5
 
 To find the underlying code, inspect the different branches of this repo
