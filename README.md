@@ -13,7 +13,12 @@ Based on the official [postgis/postgis](https://hub.docker.com/r/postgis/postgis
 | `16`     | 16         | 3.5     |
 | `15`     | 15         | 3.5     |
 | `14`     | 14         | 3.5     |
-| `13`     | 13         | 3.5     |
-| `12`     | 12         | 2.5     |
-| `11`     | 11         | 2.5     |
-| `10`     | 10         | 2.5     |
+
+## No longer supported
+
+| PostgreSQL | PostGIS |
+| ---------- | ------- |
+| 13         | 3.5     |
+| 12         | 2.5     |
+| 11         | 2.5     |
+| 10         | 2.5     |
