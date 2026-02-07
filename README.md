@@ -8,7 +8,8 @@ Based on the official [postgis/postgis](https://hub.docker.com/r/postgis/postgis
 
 | Tag      | PostgreSQL | PostGIS |
 | -------- | ---------- | ------- |
-| `latest` | 17         | 3.5     |
+| `latest` | 18         | 3.6     |
+| `18`     | 18         | 3.6     |
 | `17`     | 17         | 3.5     |
 | `16`     | 16         | 3.5     |
 | `15`     | 15         | 3.5     |
