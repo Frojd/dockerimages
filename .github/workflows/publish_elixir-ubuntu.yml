@@ -15,6 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         docker-image:
+          - elixir-ubuntu-24-04
           - elixir-ubuntu-22-04
           - elixir-ubuntu-20-04
           - elixir-ubuntu-18-04
