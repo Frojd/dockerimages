@@ -18,6 +18,7 @@ jobs:
           - wp-cli-php-8.1
           - wp-cli-php-8.2
           - wp-cli-php-8.3
+          - wp-cli-php-8.4
     steps:
       - uses: actions/checkout@v6.0.2
       - name: Log in to GitHub Container Registry

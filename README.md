@@ -15,6 +15,7 @@ Images are published to GitHub Container Registry at `ghcr.io/frojd/dockerimages
 | 8.1 | 2.8.1, 2.9.0, 2.10.0, 2.11.0, 2.12.0 |
 | 8.2 | 2.8.1, 2.9.0, 2.10.0, 2.11.0, 2.12.0 |
 | 8.3 | 2.8.1, 2.9.0, 2.10.0, 2.11.0, 2.12.0 |
+| 8.4 | 2.11.0, 2.12.0 |
 
 ### Unmaintained versions
 
