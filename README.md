@@ -17,6 +17,12 @@ Images are published to GitHub Container Registry at `ghcr.io/frojd/dockerimages
 | 8.3 | 2.8.1, 2.9.0, 2.10.0, 2.11.0, 2.12.0 |
 | 8.4 | 2.11.0, 2.12.0 |
 
+### Usage
+
+```
+docker pull ghcr.io/frojd/dockerimages/wp-cli-php-8.4:2.12.0
+```
+
 ### Unmaintained versions
 
 | PHP version | WP-CLI versions |
