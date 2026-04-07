@@ -31,6 +31,9 @@ jobs:
         run: make build
         working-directory: ${{ matrix.docker-image }}
 
+      - name: smoke test ${{ matrix.docker-image }}
+        run: docker run --rm ghcr.io/frojd/dockerimages/${{ matrix.docker-image }}:latest composer --version
+
       - name: push ${{ matrix.docker-image }}
         run: make push
         working-directory: ${{ matrix.docker-image }}
