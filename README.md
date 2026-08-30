@@ -6,9 +6,9 @@ Docker images for Elixir on Ubuntu, published to GitHub Container Registry (ghcr
 
 | Image | Elixir | Erlang | OTP | Status |
 |---|---|---|---|---|
-| **elixir-ubuntu-24-04** | 1.19.5 | 26.2 | 26 | |
-| | 1.18.4 | 26.2 | 26 | |
-| | 1.17.3 | 26.2 | 26 | |
+| **elixir-ubuntu-24-04** | 1.19.6 | 27.3.4.16 | 27 | |
+| | 1.18.5 | 27.3.4.16 | 27 | |
+| | 1.17.3 | 27.3.4.16 | 27 | |
 | | 1.16.1 | 26.2 | 26 | |
 | | 1.15.7 | 26.2 | 26 | |
 | **elixir-ubuntu-22-04** | 1.19.5 | 26.2 | 26 | |
