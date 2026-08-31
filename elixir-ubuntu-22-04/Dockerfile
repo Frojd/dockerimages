@@ -24,8 +24,15 @@ RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 # Install asdf (a prebuilt binary, since asdf v0.16 it is no longer a shell script)
-RUN curl -fsSL "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/asdf-${ASDF_VERSION}-linux-amd64.tar.gz" \
-  | tar -xz -C /usr/local/bin asdf
+RUN set -e; \
+  url="https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/asdf-${ASDF_VERSION}-linux-amd64.tar.gz"; \
+  for i in 1 2 3 4 5; do \
+    curl -fsSL -o /tmp/asdf.tar.gz "$url" && break; \
+    [ "$i" = 5 ] && echo "Failed to download asdf from $url" >&2 && exit 1; \
+    sleep 5; \
+  done; \
+  tar -xzf /tmp/asdf.tar.gz -C /usr/local/bin asdf; \
+  rm /tmp/asdf.tar.gz
 ENV ASDF_DATA_DIR=/root/.asdf
 ENV PATH=$PATH:/root/.asdf/shims
 
