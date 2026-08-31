@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+install_erlang() {
+  local install_type=$1
+  local version=$2
+  local install_path=$3
+
+  if [ -n "$ASDF_DOWNLOAD_PATH" ]; then
+    [ ! -d "$ASDF_DOWNLOAD_PATH" ] && mkdir -p "$ASDF_DOWNLOAD_PATH"
+    local tmp_download_dir="$ASDF_DOWNLOAD_PATH"
+  elif [ -z "$TMPDIR" ]; then
+    local tmp_download_dir=$(mktemp -d -t erlang_build_XXXXXX)
+  else
+    local tmp_download_dir=$TMPDIR
+  fi
+
+  if [ "$install_type" = "version" ]; then
+    install_erlang_version $version $install_path $tmp_download_dir
+  else
+    echo "Not supported!"
+    exit 1
+  fi
+}
+
+
+install_erlang_version() {
+  local version=$1
+  local install_path=$2
+  local tmp_download_dir=$3
+
+  # path to the tar file
+  local download_path="$tmp_download_dir/OTP-${version}.tar.gz"
+  download_tar_gz_file_for_version $version $download_path
+
+  echo "==> Copying release into place"
+
+  tar zxf $download_path -C $install_path --strip-components=1 || exit 1
+  "$install_path/Install" -minimal $install_path
+}
+
+
+download_tar_gz_file_for_version() {
+  local version=$1
+  local download_path=$2
+  local download_url=$(get_download_url_for_version $version)
+
+  # determine if the file exists
+  echo "==> Checking whether specified erlang release exists..."
+  http_status=$(curl -I -w %{http_code} -s -o /dev/null $download_url)
+
+  if [ $http_status -eq 404 ] || [ $http_status -eq 403 ]; then
+    cat <<EOS
+==> erlang version not found.
+
+Hex.pm returned a ${http_status} for the following URL:
+
+${download_url}
+
+You can view a list of all erlang releases by running 'asdf list-all erlang'.
+
+Note: If you want to download a specific release of erlang, please
+specify the full version number (e.g. 1.2.1 instead of 1.3).
+EOS
+
+    exit 1 # non zero due to file not existing
+  fi
+
+  echo "==> Downloading ${version} to ${download_path}"
+  curl -fLo $download_path -C - $download_url || exit 1
+}
+
+
+
+get_download_url_for_version() {
+  local version=$1
+
+  # if version is a release number, prepend OTP-
+  if [[ "$version" =~ ^[0-9]+\.* ]]; then
+    version="OTP-${version}"
+  fi
+
+  echo "https://builds.hex.pm/builds/otp/ubuntu-26.04/${version}.tar.gz"
+}
+
+
+install_erlang $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
